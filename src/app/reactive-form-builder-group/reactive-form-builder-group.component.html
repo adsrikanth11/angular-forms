@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h4>Template Drive Form</h4>
+            <hr>
+            <label for="username" class="form-label">Username: </label>
+            <input type="text" [(ngModel)]="username" class="form-control w-50 mb-2" placeholder="Username">
+            <p>Username: {{username}}</p>
+        </div>
+        <div class="col-6">
+            <h4>Reactive Form</h4>
+            <hr>
+            <label for="name">Name: </label>
+            <input type="text" [formControl]="name" class="form-control w-50 mb-2" placeholder="Name">
+            <p>Name: {{name.value}}</p>
+            <button type="button" (click)="setname()" class="btn btn-primary">Set name</button>
+            <button type="button" (click)="reset()" class="btn btn-danger mx-2">Remove name</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <h4>Reactive Form</h4>
+            <hr>
+            <form [formGroup]="profileform" (ngSubmit)="onsubmit()">
+                <label for="firstname" class="form-label">First Name: </label>
+                <input type="text" formControlName="firstname" class="form-control w-50 mb-2" placeholder="First name">
+                <label for="lastname" class="form-label">Last Name: </label>
+                <input type="text" formControlName="lastname" class="form-control w-50 mb-2" placeholder="Last name">
+        
+                <button type="submit" class="btn btn-primary" [disabled]="!profileform.valid">Submit</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <h4>Reactive Form Group</h4>
+            <hr>
+            <form [formGroup]="profileformgroup" (ngSubmit)="onsubmitgroup()">
+                <label for="firstname" class="form-label">First Name: </label>
+                <input type="text" formControlName="firstname" class="form-control w-50 mb-2" placeholder="First name">
+                <label for="lastname" class="form-label">Last Name: </label>
+                <input type="text" formControlName="lastname" class="form-control w-50 mb-2" placeholder="Last name">
+                <div formGroupName="address">
+                    <label for="address" class="form-label">Address: </label>
+                    <input type="text" formControlName="city" class="form-control w-50" placeholder="City name">
+                    <input type="text" formControlName="district" class="form-control w-50" placeholder="District name">
+                    <input type="text" formControlName="state" class="form-control w-50 mb-2" placeholder="State name">
+                </div>
+        
+                <button type="submit" class="btn btn-primary" [disabled]="!profileformgroup.valid">Submit</button>
+                <button type="button" class="btn btn-warning mx-3" (click)="setformgroup()">Set Values</button>
+                <button type="button" class="btn btn-info me-3" (click)="patchformgroup()">Patch Values</button>
+                <button type="button" class="btn btn-danger" (click)="resetformgroup()">Reset Values</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <h4>Reactive Form Builder Group</h4>
+            <hr>
+            <form [formGroup]="profileformbuildergroup" (ngSubmit)="onsubmitbuild()">
+                <label for="firstname" class="form-label">First Name: </label>
+                <input type="text" formControlName="firstname" class="form-control w-50 mb-2" placeholder="First name">
+                <label for="lastname" class="form-label">Last Name: </label>
+                <input type="text" formControlName="lastname" class="form-control w-50 mb-2" placeholder="Last name">
+                <div class="my-3">
+                  Gender : 
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" id="male" value="male">
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" id="female" value="female">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                </div>
+                <div formArrayName="languages" class="my-3">
+                    Languages : 
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" formControlName="Telugu" id="Telugu">
+                        <label class="form-check-label" for="Telugu">Telugu</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" formControlName="Marathi" id="Marathi">
+                        <label class="form-check-label" for="Marathi">Marathi</label>
+                      </div>
+                </div>
+                <select class="form-select w-50" aria-label="Default select example" formControlName="mynumber">
+                    <option [selected]="true">Open this select number</option>
+                    <option *ngFor="let num of mynum; let i = index" [value]="mynum[i].name">{{num.name}}</option>
+                  </select>
+                <div formGroupName="address">
+                    <label for="address" class="form-label">Address: </label>
+                    <input type="text" formControlName="city" class="form-control w-50" placeholder="City name">
+                    <input type="text" formControlName="district" class="form-control w-50" placeholder="District name">
+                    <input type="text" formControlName="state" class="form-control w-50 mb-2" placeholder="State name">
+                </div>
+        
+                <button type="submit" class="btn btn-primary" [disabled]="!profileformbuildergroup.valid">Submit</button>
+                <button type="button" class="btn btn-warning mx-3" (click)="setformbuildgroup()">Set Values</button>
+                <button type="button" class="btn btn-info me-3" (click)="patchformbuildgroup()">Patch Values</button>
+                <button type="button" class="btn btn-danger" (click)="resetformbuildgroup()">Reset Values</button>
+            </form>
+        </div>
+    </div>
+</div>

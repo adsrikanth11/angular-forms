@@ -14,6 +14,7 @@ import { FormControlFormComponent } from './form-control-form/form-control-form.
 import { FormGroupFormComponent } from './form-group-form/form-group-form.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormBuilderGroupComponent } from './reactive-form-builder-group/reactive-form-builder-group.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TwoWayComponent,
     FormControlFormComponent,
     FormGroupFormComponent,
-    FormBuilderComponent
+    FormBuilderComponent,
+    ReactiveFormBuilderGroupComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { FormGroupFormComponent } from './form-group-form/form-group-form.compon
 import { HomeComponent } from './home/home.component';
 import { OneWayComponent } from './one-way/one-way.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ReactiveFormBuilderGroupComponent } from './reactive-form-builder-group/reactive-form-builder-group.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { TemplateRefVariableComponent } from './template-ref-variable/template-ref-variable.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'form-builder-form', component: FormBuilderComponent },
   { path: 'template-driven-form', component: TemplateDrivenFormComponent },
   { path: 'reactive-form', component: ReactiveFormComponent },
+  { path: 'reactive-form-builder-group', component: ReactiveFormBuilderGroupComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
 
