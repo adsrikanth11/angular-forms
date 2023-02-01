@@ -1,1 +1,71 @@
-<p>form-control-form works!</p>
+<div class="card w-50 shadow-sm mx-auto mt-5">
+    <div class="card-header">
+        <h5 class="text-center">Form Control</h5>
+    </div>
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <input type="text" [formControl]="firstname" name="firstname" class="form-control" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+                <input type="text" [formControl]="lastname" name="lastname" class="form-control" placeholder="Last Name">
+            </div>
+            <div class="col-md-6">
+                <input type="password" [formControl]="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="col-md-6">
+                <input type="email" [formControl]="email" name="email" class="form-control" placeholder="E-Mail Address">
+            </div>
+            <div class="col-md-6">
+                <input type="text" [formControl]="mobile" name="mobile" class="form-control" placeholder="Mobile number">
+            </div>
+            <div class="col-md-6">
+                <input type="date" [formControl]="dob" name="dob" class="form-control" placeholder="Date Of Birth">
+            </div>
+            <div class="col-md-6">
+                <p>Gender: </p>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genders" [formControl]="gender" id="male" value="male" required>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genders" [formControl]="gender" id="female" value="female" >
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genders" [formControl]="gender" id="others" value="others">
+                    <label class="form-check-label" for="others">Others</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>Languages: </p>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" name="Telugus" [formControl]="Telugu" [ngClass]="{'form-check-input': true, 'is-valid': Telugu.valid, 'is-invalid': Telugu.touched && !Telugu.valid}" id="Telugus" value="Telugus">
+                    <label class="form-check-label" for="Telugus">Telugus</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" name="Marathi" [formControl]="Marathi" [ngClass]="{'form-check-input': true, 'is-valid': Marathi.valid, 'is-invalid': Marathi.touched && !Marathi.valid}" id="Marathi" value="Marathi">
+                    <label class="form-check-label" for="Marathi">Marathi</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" name="Kannada" [formControl]="Kannada" [ngClass]="{'form-check-input': true, 'is-valid': Kannada.valid, 'is-invalid': Kannada.touched && !Kannada.valid}" id="Kannada" value="Kannada">
+                    <label class="form-check-label" for="Kannada">Kannada</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" name="Hindi" [formControl]="Hindi" [ngClass]="{'form-check-input': true, 'is-valid': Hindi.valid, 'is-invalid': Hindi.touched && !Hindi.valid}" id="Hindi" value="Hindi">
+                    <label class="form-check-label" for="Hindi">Hindi</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" name="English" [formControl]="English" [ngClass]="{'form-check-input': true, 'is-valid': English.valid, 'is-invalid': English.touched && !English.valid}" id="English" value="English">
+                    <label class="form-check-label" for="English">English</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-around mt-4">
+                <button type="button" class="btn btn-primary" (click)="two_way_formcontrol()">Submit</button>
+                <button type="button" class="btn btn-info" (click)="set_values()">Set Value</button>
+                <button type="button" class="btn btn-warning" (click)="patch_values()">Patch Value</button>
+                <button type="button" class="btn btn-danger"(click)="reset_values()" >Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
