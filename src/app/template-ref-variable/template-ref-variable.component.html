@@ -1,1 +1,19 @@
-<p>template-ref-variable works!</p>
+<div class="card w-50 shadow-sm mx-auto mt-5">
+    <div class="card-header">
+        <h5 class="text-center">Template Ref Variable #inputname</h5>
+    </div>
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <input type="text" #fname class="form-control" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+                <input type="text" #lname class="form-control" placeholder="Last Name">
+            </div>
+            <div class="col-md-6">
+                full name:  {{fullname}}
+            </div>
+            <button type="button" class="btn btn-primary" (click)="one_way_temp(fname, lname)">Submit</button>
+        </div>
+    </div>
+</div>

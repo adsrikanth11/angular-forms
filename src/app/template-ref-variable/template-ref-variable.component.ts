@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateRefVariableComponent implements OnInit {
 
-  constructor() { }
+  // One-way
+    // Template Ref Variable #inputname
+    fname: String = '';
+    lname: String = '';
+    fullname: String = '';
+
+    firstname: String = '';
+    lastname: String = '';
+    Fullname: String = '';
 
   ngOnInit(): void {
+  }
+
+  one_way_temp(fname: any, lname: any) {
+    this.fullname = fname.value + ' ' + lname.value;
+    console.log(fname);
+    console.log(fname.value);
   }
 
 }
