@@ -1,1 +1,96 @@
-<p>form-group-form works!</p>
+<div class="card w-50 shadow-sm mx-auto mt-5">
+    <div class="card-header">
+        <h5 class="text-center">Form Group</h5>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="two_way_formgroup" (ngSubmit)="onSubmit()" class="row g-3">
+            <div class="col-md-6">
+                <input type="text" formControlName="firstname" [ngClass]="{'form-control': true, 'is-invalid': f['firstname'].errors && f['firstname'].touched }" placeholder="First Name">
+                <div *ngIf="f['firstname'].touched && f['firstname'].invalid" class="invalid-feedback">
+                    <div *ngIf="f['firstname'].errors && f['firstname'].errors['required']">First Name is required.</div>
+                    <div *ngIf="f['firstname'].errors && f['firstname'].errors['minlength']">Name should be 3 character.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="text" formControlName="lastname" [ngClass]="{'form-control': true, 'is-invalid': f['lastname'].errors && f['lastname'].touched }" placeholder="Last Name">
+                <div *ngIf="f['lastname'].touched && f['lastname'].invalid" class="invalid-feedback">
+                    <div *ngIf="f['lastname'].errors && f['lastname'].errors['required']">Last Name is required.</div>
+                    <div *ngIf="f['lastname'].errors && f['lastname'].errors['minlength']">Last Name should be 3 character.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="password" formControlName="password" [ngClass]="{'form-control': true, 'is-invalid': f['password'].errors && f['password'].touched }" placeholder="Password">
+                <div *ngIf="f['password'].touched && f['password'].invalid" class="invalid-feedback">
+                    <div *ngIf="f['password'].errors && f['password'].errors['required']">Password Name is required.</div>
+                    <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Password Name should be 6 character.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="email" formControlName="email" [ngClass]="{'form-control': true, 'is-invalid': f['email'].errors && f['email'].touched }" placeholder="E-Mail Address">
+                <div *ngIf="f['email'].touched && f['email'].invalid" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors && f['email'].errors['required']">E-Mail is required.</div>
+                    <div *ngIf="f['email'].errors && f['email'].errors['pattern']">E-Mail should be valid.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="text" formControlName="mobile" [ngClass]="{'form-control': true, 'is-invalid': f['mobile'].errors && f['mobile'].touched }" placeholder="Mobile number">
+                <div *ngIf="f['mobile'].touched && f['mobile'].invalid" class="invalid-feedback">
+                    <div *ngIf="f['mobile'].errors && f['mobile'].errors['pattern']">Enter valid 10 digit mobile numbers.</div>
+                    <div *ngIf="f['mobile'].errors && f['mobile'].errors['required']">Mobile number is required.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="date" formControlName="dob" [ngClass]="{'form-control': true, 'is-invalid': f['dob'].errors && f['dob'].touched }" placeholder="Date Of Birth">
+                <div *ngIf="f['dob'].touched && f['dob'].invalid" class="invalid-feedback">
+                    <div *ngIf="f['dob'].errors && f['dob'].errors['required']">Date of birth is required.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>Gender: </p>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" id="male" value="male" required>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" id="female" value="female">
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" id="others" value="others">
+                    <label class="form-check-label" for="others">Others</label>
+                </div>
+            </div>
+            <div class="col-md-6" formGroupName="languages">
+                <p>Languages: </p>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" formControlName="Telugu" class="form-check-input" id="Telugu" value="Telugu">
+                    <label class="form-check-label" for="Telugu">Telugu</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" formControlName="Marathi" class="form-check-input" id="Marathi" value="Marathi">
+                    <label class="form-check-label" for="Marathi">Marathi</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" formControlName="Kannada" class="form-check-input" id="Kannada" value="Kannada">
+                    <label class="form-check-label" for="Kannada">Kannada</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" formControlName="Hindi" class="form-check-input" id="Hindi" value="Hindi">
+                    <label class="form-check-label" for="Hindi">Hindi</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" formControlName="English" class="form-check-input" id="English" value="English">
+                    <label class="form-check-label" for="English">English</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-around mt-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-info" (click)="set_values()">Set Value</button>
+                <button type="button" class="btn btn-warning" (click)="patch_values()">Patch Value</button>
+                <button type="button" class="btn btn-danger"(click)="reset_values()" >Reset</button>
+            </div>
+        </form>
+        <!-- {{two_way_formgroup.controls | json}} -->
+
+    </div>
+</div>
