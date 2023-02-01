@@ -1,1 +1,100 @@
-<p>one-way works!</p>
+<div class="card w-50 shadow-sm mx-auto mt-5">
+    <div class="card-header">
+        <h5 class="text-center">One - Way  With #one_way_form="ngForm"</h5>
+    </div>
+    <div class="card-body">
+        <div *ngIf="submitted" class="alert alert-success alert-dismissible fade show text-center p-2" role="alert">
+            Form Submitted successfully
+            <button type="button" class="btn-close p-3" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <form #one_way_form="ngForm" (ngSubmit)="one_way_forms(one_way_form)" class="row g-3">
+            <div class="col-md-6">
+                <input type="text" name="fname" ngModel #fname="ngModel" [ngClass]="{'form-control': true, 'is-valid': fname.valid, 'is-invalid': fname.touched && !fname.valid}" placeholder="First Name" required>
+                <div class="invalid-feedback" *ngIf="fname.touched && !fname.valid">
+                    <div *ngIf="fname.errors && fname.errors['required']">First Name is required.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="lname" ngModel #lname="ngModel" [ngClass]="{'form-control': true, 'is-valid': lname.valid, 'is-invalid': fname.touched && !fname.valid}" placeholder="Last Name" required>
+                <div class="invalid-feedback" *ngIf="lname.touched && !lname.valid">
+                    <div *ngIf="lname.errors && lname.errors['required']">Last Name is required.</div>
+                </div>
+            </div>
+            <!-- <div class="col-md-6" hidden>
+                <input type="text" disabled name="fullname" ngModel #fullname="ngModel" value="{{fname}} {{lname}}" [ngClass]="{'form-control': true, 'is-valid': fullname.valid, 'is-invalid': fullname.touched && !fname.valid}" placeholder="Full Name" required>
+            </div> -->
+            <div class="col-md-6">
+                <input type="password" name="password" ngModel #password="ngModel" [ngClass]="{'form-control': true, 'is-valid': password.valid, 'is-invalid': password.touched && !password.valid}" placeholder="Password" required minlength="6">
+                <div class="invalid-feedback" *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors && password.errors['required']">Last Name is required.</div>
+                    <div *ngIf="password.errors && password.errors['minlength']">Password should be minimum 6 characters.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" ngModel #email="ngModel" [ngClass]="{'form-control': true, 'is-valid': email.valid, 'is-invalid': email.touched && !email.valid}" placeholder="E-mail address" required>
+                <div class="invalid-feedback" *ngIf="email.touched && !email.valid">
+                    <div *ngIf="email.errors && email.errors['required']">Last Name is required.</div>
+                    <div *ngIf="email.errors && email.errors['pattern']">E-mail should be valid.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="text" pattern="\d*" name="mobile" ngModel #mobile="ngModel" [ngClass]="{'form-control': true, 'is-valid': mobile.valid, 'is-invalid': mobile.touched && !mobile.valid}" placeholder="Mobile number" minlength="10" maxlength="10" required>
+                <div class="invalid-feedback" *ngIf="mobile.touched && !mobile.valid">
+                    <div *ngIf="mobile.errors && mobile.errors['required']">Mobile number is required.</div>
+                    <div *ngIf="mobile.errors && mobile.errors['minlength']">Password should be minimum 10 numbers.</div>
+                    <div *ngIf="mobile.errors && mobile.errors['maxlength']">Password should be maximum 10 numbers.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input type="date" name="dob" ngModel #dob="ngModel" [ngClass]="{'form-control': true, 'is-valid': dob.valid, 'is-invalid': dob.touched && !dob.valid}" required>
+                <div class="invalid-feedback" *ngIf="dob.touched && !dob.valid">
+                    <div *ngIf="dob.errors && dob.errors['required']">Date of Birth is required.</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>Gender: </p>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" ngModel #gender="ngModel" id="male" value="male" required>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" ngModel #gender="ngModel" id="female" value="female" >
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" ngModel #gender="ngModel" id="others" value="others">
+                    <label class="form-check-label" for="others">Others</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>Languages: </p>
+                <div class="form-check form-check-inline">
+                    <input [ngClass]="{'form-check-input': true, 'is-valid': Telugu.valid, 'is-invalid': Telugu.touched && !Telugu.valid}" type="checkbox" id="Telugu" name="Telugu" ngModel #Telugu="ngModel" value="Telugu">
+                    <label class="form-check-label" for="Telugu">Telugu</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input [ngClass]="{'form-check-input': true, 'is-valid': Marathi.valid, 'is-invalid': Marathi.touched && !Marathi.valid}" type="checkbox" id="Marathi" name="Marathi" ngModel #Marathi="ngModel" value="Marathi">
+                    <label class="form-check-label" for="Marathi">Marathi</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input [ngClass]="{'form-check-input': true, 'is-valid': Kannada.valid, 'is-invalid': Kannada.touched && !Kannada.valid}" type="checkbox" id="Kannada" name="Kannada" ngModel #Kannada="ngModel" value="Telugu">
+                    <label class="form-check-label" for="Kannada">Kannada</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input [ngClass]="{'form-check-input': true, 'is-valid': Hindi.valid, 'is-invalid': Hindi.touched && !Hindi.valid}" type="checkbox" id="Hindi" name="Hindi" ngModel #Hindi="ngModel" value="Hindi">
+                    <label class="form-check-label" for="Hindi">Hindi</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input [ngClass]="{'form-check-input': true, 'is-valid': English.valid, 'is-invalid': English.touched && !English.valid}" type="checkbox" id="English" name="English" ngModel #English="ngModel" value="English">
+                    <label class="form-check-label" for="English">English</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-around mt-4">
+                <button type="submit" class="btn btn-primary" [disabled]="!one_way_form.valid">Submit</button>
+                <button type="submit" class="btn btn-info" (click)="set_value(one_way_form)">Set value</button>
+                <button type="submit" class="btn btn-warning" (click)="patch_value()">Patch value</button>
+                <button type="submit" class="btn btn-danger" (click)="reset(one_way_form)">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
