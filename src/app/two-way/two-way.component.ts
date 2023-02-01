@@ -9,7 +9,16 @@ export class TwoWayComponent implements OnInit {
 
   constructor() { }
 
+  firstname: String = '';
+  lastname: String = '';
+  Fullname: String = '';
+
   ngOnInit(): void {
+  }
+
+  two_way_binding(firstname: String, lastname: String) {
+    this.Fullname = firstname + ' ' + lastname;
+    console.log(this.Fullname);
   }
 
 }

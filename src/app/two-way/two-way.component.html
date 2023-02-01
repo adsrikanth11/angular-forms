@@ -1,1 +1,19 @@
-<p>two-way works!</p>
+<div class="card w-50 shadow-sm mx-auto mt-5">
+    <div class="card-header">
+        <h5 class="text-center">Two-Way Binding [(ngModel)]="inputname"</h5>
+    </div>
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <input type="text" [(ngModel)]="firstname" class="form-control" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+                <input type="text" [(ngModel)]="lastname"  class="form-control" placeholder="Last Name">
+            </div>
+            <div class="col-md-6">
+                Full name:  {{firstname}} {{lastname}}
+            </div>
+            <button type="button" class="btn btn-primary" (click)="two_way_binding(firstname, lastname)">Submit</button>
+        </div>
+    </div>
+</div>
