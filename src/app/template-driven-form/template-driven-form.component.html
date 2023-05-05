@@ -16,35 +16,35 @@
                 <label for="password" class="form-label">Password: </label>
                 <input type="password" name="password" [(ngModel)]="password" class="form-control" id="password" minlength="3" required>
             </div>
-            <!-- <div class="mb-3">
+            <div class="mb-3">
                 Gender : &nbsp;
                 <div class="form-check form-check-inline">
-                    <input type="radio" ngModel name="gender" value="male" class="form-check-input" id="male" checked>
+                    <input type="radio" [(ngModel)]="gender" name="gender" value="male" class="form-check-input" id="male">
                     <label for="male" class="form-label">Male</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="radio" ngModel name="gender" value="female" class="form-check-input" id="female">
+                    <input type="radio" [(ngModel)]="gender" name="gender" value="female" class="form-check-input" id="female">
                     <label for="female" class="form-label">Female</label>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" ngModelGroup="cities">
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" ngModel name="cities" id="Hyderabad" value="Hyderabad" class="form-check-input">
+                    <input type="checkbox" [(ngModel)]="Hyderabad" name="Hyderabad" id="Hyderabad" value="Hyderabad" class="form-check-input">
                     <label for="Hyderabad" class="form-label">Hyderabad</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" ngModel name="cities" id="Bangalore" value="Bangalore" class="form-check-input">
+                    <input type="checkbox" [(ngModel)]="Bangalore" name="Bangalore" id="Bangalore" value="Bangalore" class="form-check-input">
                     <label for="Bangalore" class="form-label">Bangalore</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" ngModel name="cities" id="Chennai" value="Chennai" class="form-check-input">
+                    <input type="checkbox" [(ngModel)]="Chennai" name="Chennai" id="Chennai" value="Chennai" class="form-check-input">
                     <label for="Chennai" class="form-label">Chennai</label>
                 </div>
-            </div> -->
+            </div>
             <button type="submit" class="btn btn-primary me-4" [disabled]="!templateform.valid">Submit</button>
-            <button type="button" class="btn btn-danger me-4" (click)="resetform(templateform)">Reset</button>
-            <button type="button" class="btn btn-success" (click)="setvalue(templateform)">Set Value</button>
-            <!-- <button type="button" class="btn btn-danger" (click)="resetform(templateform)">Reset</button> -->
+            <button type="button" class="btn btn-success me-4" (click)="set_value(templateform)">Set Value</button>
+            <button type="button" class="btn btn-warning" (click)="patch_value()">Patch value</button>
+            <button type="button" class="btn btn-danger ms-4" (click)="resetform(templateform)">Reset</button>
         </form>
     </div>
 </div>

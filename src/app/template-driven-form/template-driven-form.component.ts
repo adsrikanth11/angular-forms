@@ -11,8 +11,10 @@ export class TemplateDrivenFormComponent implements OnInit {
   username: string = '';
   emailid: string = '';
   password: string = '';
-  // gender: boolean = true;
-  // cities: string = '';
+  gender: boolean = true;
+  Hyderabad: boolean = false;
+  Bangalore: boolean = false;
+  Chennai: boolean = false;
 
   constructor() { }
 
@@ -29,13 +31,25 @@ export class TemplateDrivenFormComponent implements OnInit {
     templateform.reset();
   }
 
-  setvalue(templateform: NgForm) {
+  set_value(templateform: NgForm) {
     let userdetail = {
       username: 'Srikanth',
       emailid: 'srikanth@gmail.com',
-      password: 'mypassword'
+      password: 'mypassword',
+      gender: 'male',
+      cities: {
+        Hyderabad: true,
+        Bangalore: true,
+        Chennai: false
+      }
     }
     templateform.setValue(userdetail);
+  }
+
+  patch_value() {
+    this.username = 'Srikanth';
+    this.emailid = 'srikanth@gmail.com';
+    this.password = 'mypassword';
   }
 
 }
